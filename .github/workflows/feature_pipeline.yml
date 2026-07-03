@@ -31,6 +31,23 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Debug secrets (safe — no values printed)
+        env:
+          CITY_LAT:        ${{ secrets.CITY_LAT }}
+          CITY_LON:        ${{ secrets.CITY_LON }}
+          CITY_NAME:       ${{ secrets.CITY_NAME }}
+          TIMEZONE:        ${{ secrets.TIMEZONE }}
+          MONGODB_URI:     ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
+        run: |
+          echo "--- Secret diagnostics ---"
+          if [ -z "$CITY_LAT" ]; then echo "CITY_LAT: EMPTY"; else echo "CITY_LAT: SET, length=${#CITY_LAT}"; fi
+          if [ -z "$CITY_LON" ]; then echo "CITY_LON: EMPTY"; else echo "CITY_LON: SET, length=${#CITY_LON}"; fi
+          if [ -z "$CITY_NAME" ]; then echo "CITY_NAME: EMPTY"; else echo "CITY_NAME: SET, length=${#CITY_NAME}"; fi
+          if [ -z "$TIMEZONE" ]; then echo "TIMEZONE: EMPTY"; else echo "TIMEZONE: SET, length=${#TIMEZONE}"; fi
+          if [ -z "$MONGODB_URI" ]; then echo "MONGODB_URI: EMPTY"; else echo "MONGODB_URI: SET, length=${#MONGODB_URI}"; fi
+          if [ -z "$MONGODB_DB_NAME" ]; then echo "MONGODB_DB_NAME: EMPTY"; else echo "MONGODB_DB_NAME: SET, length=${#MONGODB_DB_NAME}"; fi
+
       - name: Run feature pipeline
         env:
           MONGODB_URI:     ${{ secrets.MONGODB_URI }}
