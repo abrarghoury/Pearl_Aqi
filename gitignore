@@ -1,0 +1,41 @@
+# Environment
+.env
+*.env
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Cache
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Models (large files — MongoDB mein hain already)
+models/saved/*.pkl
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/

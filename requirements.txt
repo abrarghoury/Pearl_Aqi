@@ -1,0 +1,30 @@
+# Data fetching
+openmeteo-requests==1.7.5
+requests==2.32.3
+requests-cache==1.2.1
+retry-requests==2.0.0
+
+# Data processing
+pandas==2.2.3
+numpy==1.26.4
+
+# Database
+pymongo==4.17.0
+python-dotenv==1.1.1
+
+# Machine learning
+scikit-learn==1.7.2
+xgboost==2.1.4
+lightgbm==4.3.0
+joblib==1.4.2
+
+# Explainability
+shap==0.46.0
+
+# Web app
+streamlit==1.38.0
+plotly==5.24.1
+
+# Utilities
+python-dateutil==2.9.0
+pytz==2025.2

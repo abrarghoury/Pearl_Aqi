@@ -1,0 +1,703 @@
+2026-06-26 12:16:57,505 [INFO] __main__ - Training pipeline started
+2026-06-26 12:17:12,702 [INFO] __main__ - Loaded 8642 training rows
+2026-06-26 12:17:12,703 [INFO] __main__ - Training Day1 model
+2026-06-26 12:17:12,703 [INFO] models.train - Training for target: aqi_day1
+2026-06-26 12:17:12,720 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-26 12:17:14,053 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 4.2690
+2026-06-26 12:17:16,609 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 4.2812
+2026-06-26 12:17:19,577 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-26 12:17:20,781 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 4.2767
+2026-06-26 12:17:20,782 [INFO] models.train - Best XGB: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-26 12:17:23,948 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 4.5373
+2026-06-26 12:17:29,262 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 4.5284
+2026-06-26 12:17:33,505 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 4.5736
+2026-06-26 12:17:37,335 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-26 12:17:37,336 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-26 12:17:38,563 [INFO] models.evaluate - [XGBoost] RMSE: 0.5315  MAE: 0.3621  R2: 0.9987
+2026-06-26 12:17:42,057 [INFO] models.evaluate - [RandomForest] RMSE: 0.6035  MAE: 0.4011  R2: 0.9983
+2026-06-26 12:17:42,123 [INFO] models.evaluate - [Ridge] RMSE: 0.3037  MAE: 0.1902  R2: 0.9996
+2026-06-26 12:17:49,207 [INFO] __main__ - Day1 pred mean: 88.58  std: 21.74
+2026-06-26 12:17:49,208 [INFO] __main__ - Training Day2 model
+2026-06-26 12:17:49,208 [INFO] models.train - Training for target: aqi_day2
+2026-06-26 12:17:49,220 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-26 12:17:50,463 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 12.5555
+2026-06-26 12:17:53,149 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 12.8234
+2026-06-26 12:17:56,232 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 12.7404
+2026-06-26 12:17:57,436 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 12.7607
+2026-06-26 12:17:57,437 [INFO] models.train - Best XGB: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 12.5555
+2026-06-26 12:18:01,833 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 12.9827
+2026-06-26 12:18:09,031 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 12.9257
+2026-06-26 12:18:15,416 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 13.0713
+2026-06-26 12:18:20,477 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 12.9512
+2026-06-26 12:18:20,478 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 12.9257
+2026-06-26 12:18:20,880 [INFO] models.evaluate - [XGBoost] RMSE: 6.1312  MAE: 4.5137  R2: 0.82
+2026-06-26 12:18:25,352 [INFO] models.evaluate - [RandomForest] RMSE: 6.6306  MAE: 4.8415  R2: 0.7895
+2026-06-26 12:18:25,368 [INFO] models.evaluate - [Ridge] RMSE: 6.0768  MAE: 4.4326  R2: 0.8232
+2026-06-26 12:18:33,263 [INFO] __main__ - Day2 pred mean: 88.45  std: 20.86
+2026-06-26 12:18:33,265 [INFO] __main__ - Training Day3 model
+2026-06-26 12:18:33,265 [INFO] models.train - Training for target: aqi_day3
+2026-06-26 12:18:33,269 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-26 12:18:34,237 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 22.9978
+2026-06-26 12:18:36,018 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 23.3732
+2026-06-26 12:18:38,436 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 23.2617
+2026-06-26 12:18:39,232 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 23.7420
+2026-06-26 12:18:39,232 [INFO] models.train - Best XGB: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 22.9978
+2026-06-26 12:18:43,911 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 23.8036
+2026-06-26 12:18:51,903 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 24.0819
+2026-06-26 12:18:59,175 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 24.2500
+2026-06-26 12:19:05,119 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 23.6802
+2026-06-26 12:19:05,119 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 23.6802
+2026-06-26 12:19:05,697 [INFO] models.evaluate - [XGBoost] RMSE: 12.5121  MAE: 9.6201  R2: 0.1923
+2026-06-26 12:19:09,764 [INFO] models.evaluate - [RandomForest] RMSE: 12.2746  MAE: 9.1662  R2: 0.2227
+2026-06-26 12:19:09,785 [INFO] models.evaluate - [Ridge] RMSE: 12.8766  MAE: 9.9029  R2: 0.1446
+2026-06-26 12:19:15,846 [INFO] __main__ - Complete - Day1 R2: 0.9996 | Day2 R2: 0.8232 | Day3 R2: 0.2227
+2026-06-27 09:47:40,254 [INFO] __main__ - Training pipeline started
+2026-06-27 09:48:05,653 [INFO] __main__ - Loaded 8642 training rows
+2026-06-27 09:48:05,655 [INFO] __main__ - Training Day1 model
+2026-06-27 09:48:05,655 [INFO] models.train - Training for target: aqi_day1
+2026-06-27 09:48:05,668 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-27 09:48:06,418 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 4.2690
+2026-06-27 09:48:07,934 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 4.2812
+2026-06-27 09:48:09,672 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-27 09:48:10,387 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 4.2767
+2026-06-27 09:48:10,387 [INFO] models.train - Best XGB: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-27 09:48:13,170 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 4.5373
+2026-06-27 09:48:17,865 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 4.5284
+2026-06-27 09:48:22,160 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 4.5736
+2026-06-27 09:48:26,055 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-27 09:48:26,056 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-27 09:48:50,499 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 4.4596
+2026-06-27 09:49:34,864 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 4.4398
+2026-06-27 09:50:17,387 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 4.6029
+2026-06-27 09:50:17,387 [INFO] models.train - Best GB: {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 4.4398
+2026-06-27 09:50:17,541 [INFO] models.train - Ridge CV RMSE 0.8298
+2026-06-27 09:50:17,545 [INFO] models.train - CV winner for aqi_day1: Ridge CV RMSE 0.8298
+2026-06-27 09:50:18,670 [INFO] models.evaluate - [XGBoost] RMSE: 0.5315  MAE: 0.3621  R2: 0.9987
+2026-06-27 09:50:21,791 [INFO] models.evaluate - [RandomForest] RMSE: 0.6035  MAE: 0.4011  R2: 0.9983
+2026-06-27 09:50:52,275 [INFO] models.evaluate - [GradientBoosting] RMSE: 0.4223  MAE: 0.2801  R2: 0.9992
+2026-06-27 09:50:52,293 [INFO] models.evaluate - [Ridge] RMSE: 0.3037  MAE: 0.1902  R2: 0.9996
+2026-06-27 09:50:52,319 [INFO] models.evaluate - [Ridge [WINNER]] RMSE: 0.3037  MAE: 0.1902  R2: 0.9996
+2026-06-27 09:54:43,998 [INFO] __main__ - Training pipeline started
+2026-06-27 09:54:56,000 [INFO] __main__ - Loaded 8642 training rows
+2026-06-27 09:54:56,001 [INFO] __main__ - Training Day1 model
+2026-06-27 09:54:56,001 [INFO] models.train - Training for target: aqi_day1
+2026-06-27 09:54:56,009 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-27 09:54:56,710 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 4.2690
+2026-06-27 09:54:58,183 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 4.2812
+2026-06-27 09:54:59,853 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-27 09:55:00,561 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 4.2767
+2026-06-27 09:55:00,561 [INFO] models.train - Best XGB params: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 4.2630
+2026-06-27 09:55:03,477 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 4.5373
+2026-06-27 09:55:08,517 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 4.5284
+2026-06-27 09:55:12,524 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 4.5736
+2026-06-27 09:55:16,260 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-27 09:55:16,260 [INFO] models.train - Best RF params: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 4.4889
+2026-06-27 09:55:40,018 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 4.4596
+2026-06-27 09:56:15,415 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 4.4398
+2026-06-27 09:56:50,677 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 4.6029
+2026-06-27 09:56:50,678 [INFO] models.train - Best GB params: {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 4.4398
+2026-06-27 09:56:50,764 [INFO] models.train - Ridge CV RMSE 0.8298
+2026-06-27 09:56:50,765 [INFO] models.train - CV winner for aqi_day1: Ridge CV RMSE 0.8298
+2026-06-27 09:56:51,420 [INFO] models.evaluate - [XGBoost] RMSE: 0.5315  MAE: 0.3621  R2: 0.9987
+2026-06-27 09:56:53,864 [INFO] models.evaluate - [RandomForest] RMSE: 0.6035  MAE: 0.4011  R2: 0.9983
+2026-06-27 09:57:17,895 [INFO] models.evaluate - [GradientBoosting] RMSE: 0.4223  MAE: 0.2801  R2: 0.9992
+2026-06-27 09:57:17,909 [INFO] models.evaluate - [Ridge] RMSE: 0.3037  MAE: 0.1902  R2: 0.9996
+2026-06-27 09:57:17,927 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 0.3037  MAE: 0.1902  R2: 0.9996
+2026-06-27 09:57:25,355 [INFO] models.registry - Model saved to GridFS: aqi_day1_Ridge_20260627_045722.joblib (id: 6a3f58327718805256753c31)
+2026-06-27 09:57:25,968 [INFO] models.registry - Registered aqi_day1 v1 in MongoDB
+2026-06-27 09:57:25,991 [INFO] __main__ - Day1 pred mean: 88.58  std: 21.74
+2026-06-27 09:57:25,991 [INFO] __main__ - Training Day2 model
+2026-06-27 09:57:25,992 [INFO] models.train - Training for target: aqi_day2
+2026-06-27 09:57:26,000 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-27 09:57:26,738 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 12.5555
+2026-06-27 09:57:28,251 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 12.8234
+2026-06-27 09:57:30,046 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 12.7404
+2026-06-27 09:57:30,743 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 12.7607
+2026-06-27 09:57:30,743 [INFO] models.train - Best XGB params: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 12.5555
+2026-06-27 09:57:33,715 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 12.9827
+2026-06-27 09:57:39,153 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 12.9257
+2026-06-27 09:57:43,847 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 13.0713
+2026-06-27 09:57:48,062 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 12.9512
+2026-06-27 09:57:48,063 [INFO] models.train - Best RF params: {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 12.9257
+2026-06-27 09:58:12,402 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 12.7541
+2026-06-27 09:58:49,475 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 12.6679
+2026-06-27 09:59:46,228 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 13.3658
+2026-06-27 09:59:46,229 [INFO] models.train - Best GB params: {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 12.6679
+2026-06-27 09:59:46,320 [INFO] models.train - Ridge CV RMSE 11.4842
+2026-06-27 09:59:46,321 [INFO] models.train - CV winner for aqi_day2: Ridge CV RMSE 11.4842
+2026-06-27 09:59:46,910 [INFO] models.evaluate - [XGBoost] RMSE: 6.1312  MAE: 4.5137  R2: 0.82
+2026-06-27 09:59:51,758 [INFO] models.evaluate - [RandomForest] RMSE: 6.6306  MAE: 4.8415  R2: 0.7895
+2026-06-27 10:00:30,884 [INFO] models.evaluate - [GradientBoosting] RMSE: 6.2408  MAE: 4.5897  R2: 0.8135
+2026-06-27 10:00:30,904 [INFO] models.evaluate - [Ridge] RMSE: 6.0768  MAE: 4.4326  R2: 0.8232
+2026-06-27 10:00:30,952 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 6.0768  MAE: 4.4326  R2: 0.8232
+2026-06-27 10:00:37,766 [INFO] models.registry - Model saved to GridFS: aqi_day2_Ridge_20260627_050035.joblib (id: 6a3f58f37718805256753c35)
+2026-06-27 10:00:38,412 [INFO] models.registry - Registered aqi_day2 v1 in MongoDB
+2026-06-27 10:00:38,444 [INFO] __main__ - Day2 pred mean: 88.45  std: 20.86
+2026-06-27 10:00:38,445 [INFO] __main__ - Training Day3 model
+2026-06-27 10:00:38,445 [INFO] models.train - Training for target: aqi_day3
+2026-06-27 10:00:38,454 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-27 10:00:40,144 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 22.9978
+2026-06-27 10:00:43,676 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 23.3732
+2026-06-27 10:00:47,330 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 23.2617
+2026-06-27 10:00:48,742 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 23.7420
+2026-06-27 10:00:48,742 [INFO] models.train - Best XGB params: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 22.9978
+2026-06-27 10:00:54,239 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 23.8036
+2026-06-27 10:01:04,480 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 24.0819
+2026-06-27 10:01:13,674 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 24.2500
+2026-06-27 10:01:21,424 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 23.6802
+2026-06-27 10:01:21,425 [INFO] models.train - Best RF params: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 23.6802
+2026-06-27 10:02:04,131 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 24.2312
+2026-06-27 10:03:09,631 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 24.2354
+2026-06-27 10:04:12,848 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 25.2296
+2026-06-27 10:04:12,848 [INFO] models.train - Best GB params: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 24.2312
+2026-06-27 10:04:12,945 [INFO] models.train - Ridge CV RMSE 28.5284
+2026-06-27 10:04:12,947 [INFO] models.train - CV winner for aqi_day3: XGBoost CV RMSE 22.9978
+2026-06-27 10:04:14,371 [INFO] models.evaluate - [XGBoost] RMSE: 12.5121  MAE: 9.6201  R2: 0.1923
+2026-06-27 10:04:19,238 [INFO] models.evaluate - [RandomForest] RMSE: 12.2746  MAE: 9.1662  R2: 0.2227
+2026-06-27 10:04:46,108 [INFO] models.evaluate - [GradientBoosting] RMSE: 12.6885  MAE: 9.6223  R2: 0.1694
+2026-06-27 10:04:46,127 [INFO] models.evaluate - [Ridge] RMSE: 12.8766  MAE: 9.9029  R2: 0.1446
+2026-06-27 10:04:46,599 [INFO] models.evaluate - [XGBoost [CV WINNER]] RMSE: 12.5121  MAE: 9.6201  R2: 0.1923
+2026-06-27 10:04:53,769 [INFO] models.registry - Model saved to GridFS: aqi_day3_XGBoost_20260627_050450.joblib (id: 6a3f59f27718805256753c39)
+2026-06-27 10:04:54,247 [INFO] models.registry - Registered aqi_day3 v1 in MongoDB
+2026-06-27 10:04:54,250 [INFO] __main__ - Pipeline complete in 610.3s - Day1 CV:0.8298 R2:0.9996 | Day2 CV:11.4842 R2:0.8232 | Day3 CV:22.9978 R2:0.1923
+2026-06-28 11:44:35,586 [INFO] __main__ - Training pipeline started
+2026-06-28 11:44:56,190 [INFO] __main__ - Loaded 8640 training rows
+2026-06-28 11:44:56,192 [INFO] __main__ - Training Day1 model
+2026-06-28 11:44:56,192 [INFO] models.train - Training for target: aqi_day1
+2026-06-28 11:44:56,204 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-28 11:44:56,949 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 21.8877
+2026-06-28 11:44:58,346 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 21.7033
+2026-06-28 11:44:59,999 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 21.6811
+2026-06-28 11:45:00,684 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 22.4713
+2026-06-28 11:45:00,684 [INFO] models.train - Best XGB params: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 21.6811
+2026-06-28 11:45:03,793 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 21.5757
+2026-06-28 11:45:09,451 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 21.7674
+2026-06-28 11:45:13,507 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 21.9627
+2026-06-28 11:45:16,707 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 21.5356
+2026-06-28 11:45:16,707 [INFO] models.train - Best RF params: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 21.5356
+2026-06-28 11:45:40,563 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 22.0228
+2026-06-28 11:46:13,594 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 22.0635
+2026-06-28 11:46:46,746 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 22.3069
+2026-06-28 11:46:46,746 [INFO] models.train - Best GB params: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 22.0228
+2026-06-28 11:46:46,835 [INFO] models.train - Ridge CV RMSE 23.8914
+2026-06-28 11:46:46,837 [INFO] models.train - CV winner for aqi_day1: RandomForest CV RMSE 21.5356
+2026-06-28 11:46:49,249 [INFO] models.evaluate - [XGBoost] RMSE: 11.8093  MAE: 8.8061  R2: 0.3983
+2026-06-28 11:46:51,270 [INFO] models.evaluate - [RandomForest] RMSE: 11.4365  MAE: 8.4637  R2: 0.4357
+2026-06-28 11:47:05,083 [INFO] models.evaluate - [GradientBoosting] RMSE: 11.0731  MAE: 8.2463  R2: 0.471
+2026-06-28 11:47:05,095 [INFO] models.evaluate - [Ridge] RMSE: 10.9161  MAE: 7.7514  R2: 0.4859
+2026-06-28 11:47:07,126 [INFO] models.evaluate - [RandomForest [CV WINNER]] RMSE: 11.4365  MAE: 8.4637  R2: 0.4357
+2026-06-28 11:47:24,865 [INFO] models.registry - Model saved to GridFS: aqi_day1_RandomForest_20260628_064711.joblib (id: 6a40c36fd520f9a378a0c0ce)
+2026-06-28 11:47:25,605 [INFO] models.registry - Registered aqi_day1 v1 in MongoDB
+2026-06-28 11:47:25,750 [INFO] __main__ - Day1 pred mean: 88.87  std: 19.20
+2026-06-28 11:47:25,750 [INFO] __main__ - Training Day2 model
+2026-06-28 11:47:25,750 [INFO] models.train - Training for target: aqi_day2
+2026-06-28 11:47:25,753 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-28 11:47:26,394 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 24.5852
+2026-06-28 11:47:27,763 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 24.8894
+2026-06-28 11:47:29,228 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 24.8684
+2026-06-28 11:47:29,852 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 25.2004
+2026-06-28 11:47:29,852 [INFO] models.train - Best XGB params: {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 24.5852
+2026-06-28 11:47:32,340 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 24.1395
+2026-06-28 11:47:36,606 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 24.2376
+2026-06-28 11:47:40,451 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 24.0780
+2026-06-28 11:47:43,868 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 24.1792
+2026-06-28 11:47:43,869 [INFO] models.train - Best RF params: {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 24.0780
+2026-06-28 11:48:04,622 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 24.6649
+2026-06-28 11:48:35,701 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 24.6142
+2026-06-28 11:49:06,442 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 24.6723
+2026-06-28 11:49:06,442 [INFO] models.train - Best GB params: {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 24.6142
+2026-06-28 11:49:06,495 [INFO] models.train - Ridge CV RMSE 28.0698
+2026-06-28 11:49:06,497 [INFO] models.train - CV winner for aqi_day2: RandomForest CV RMSE 24.0780
+2026-06-28 11:49:09,259 [INFO] models.evaluate - [XGBoost] RMSE: 17.085  MAE: 13.2124  R2: -0.3429
+2026-06-28 11:49:11,849 [INFO] models.evaluate - [RandomForest] RMSE: 16.8558  MAE: 12.9928  R2: -0.3071
+2026-06-28 11:49:33,074 [INFO] models.evaluate - [GradientBoosting] RMSE: 16.4553  MAE: 12.6535  R2: -0.2457
+2026-06-28 11:49:33,087 [INFO] models.evaluate - [Ridge] RMSE: 15.9554  MAE: 12.3584  R2: -0.1712
+2026-06-28 11:49:35,589 [INFO] models.evaluate - [RandomForest [CV WINNER]] RMSE: 16.8558  MAE: 12.9928  R2: -0.3071
+2026-06-28 11:50:50,944 [INFO] models.registry - Model saved to GridFS: aqi_day2_RandomForest_20260628_064939.joblib (id: 6a40c403d520f9a378a0c0ea)
+2026-06-28 11:50:51,552 [INFO] models.registry - Registered aqi_day2 v1 in MongoDB
+2026-06-28 11:50:51,661 [INFO] __main__ - Day2 pred mean: 89.53  std: 19.79
+2026-06-28 11:50:51,662 [INFO] __main__ - Training Day3 model
+2026-06-28 11:50:51,662 [INFO] models.train - Training for target: aqi_day3
+2026-06-28 11:50:51,666 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-28 11:50:52,378 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 23.7472
+2026-06-28 11:50:53,738 [INFO] models.train - XGB {'n_estimators': 500, 'max_depth': 5, 'learning_rate': 0.03, 'subsample': 0.8} CV RMSE 23.4797
+2026-06-28 11:50:55,190 [INFO] models.train - XGB {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 23.4093
+2026-06-28 11:50:55,831 [INFO] models.train - XGB {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 0.9} CV RMSE 23.8898
+2026-06-28 11:50:55,831 [INFO] models.train - Best XGB params: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.7} CV RMSE 23.4093
+2026-06-28 11:50:58,233 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.7} CV RMSE 23.2180
+2026-06-28 11:51:02,674 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 10, 'min_samples_leaf': 4, 'max_features': 0.7} CV RMSE 23.1496
+2026-06-28 11:51:06,570 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 23.1317
+2026-06-28 11:51:09,990 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 5, 'max_features': 0.6} CV RMSE 23.1597
+2026-06-28 11:51:09,990 [INFO] models.train - Best RF params: {'n_estimators': 200, 'max_depth': 12, 'min_samples_leaf': 3, 'max_features': 0.8} CV RMSE 23.1317
+2026-06-28 11:51:31,654 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 23.1762
+2026-06-28 11:52:03,975 [INFO] models.train - GB {'n_estimators': 300, 'learning_rate': 0.03, 'max_depth': 4} CV RMSE 23.3117
+2026-06-28 11:52:35,908 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 6} CV RMSE 23.6389
+2026-06-28 11:52:35,909 [INFO] models.train - Best GB params: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 23.1762
+2026-06-28 11:52:35,958 [INFO] models.train - Ridge CV RMSE 22.1866
+2026-06-28 11:52:35,959 [INFO] models.train - CV winner for aqi_day3: Ridge CV RMSE 22.1866
+2026-06-28 11:52:36,566 [INFO] models.evaluate - [XGBoost] RMSE: 18.6639  MAE: 15.2782  R2: -0.6002
+2026-06-28 11:52:39,185 [INFO] models.evaluate - [RandomForest] RMSE: 18.1062  MAE: 14.7047  R2: -0.506
+2026-06-28 11:52:53,873 [INFO] models.evaluate - [GradientBoosting] RMSE: 18.9261  MAE: 15.3069  R2: -0.6454
+2026-06-28 11:52:53,886 [INFO] models.evaluate - [Ridge] RMSE: 16.8702  MAE: 12.7141  R2: -0.3074
+2026-06-28 11:52:53,907 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 16.8702  MAE: 12.7141  R2: -0.3074
+2026-06-28 11:53:00,846 [INFO] models.registry - Model saved to GridFS: aqi_day3_Ridge_20260628_065258.joblib (id: 6a40c4cad520f9a378a0c128)
+2026-06-28 11:53:01,301 [INFO] models.registry - Registered aqi_day3 v1 in MongoDB
+2026-06-28 11:53:01,303 [INFO] __main__ - Pipeline complete in 505.7s - Day1 CV:21.5356 R2:0.4357 | Day2 CV:24.078 R2:-0.3071 | Day3 CV:22.1866 R2:-0.3074
+2026-06-28 21:58:19,240 [INFO] __main__ - Training pipeline started
+2026-06-28 21:58:26,689 [INFO] __main__ - Loaded 356 daily training rows
+2026-06-28 21:58:26,691 [INFO] __main__ - Training Day1 model
+2026-06-28 21:58:26,691 [INFO] models.train - Training for target: aqi_day1
+2026-06-28 21:58:26,697 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-28 21:58:26,916 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.3370
+2026-06-28 21:58:27,157 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.8996
+2026-06-28 21:58:27,349 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.1279
+2026-06-28 21:58:27,471 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 20.0624
+2026-06-28 21:58:27,472 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.8996
+2026-06-28 21:58:28,091 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 21.7558
+2026-06-28 21:58:28,826 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.8985
+2026-06-28 21:58:29,423 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 22.9664
+2026-06-28 21:58:30,177 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 21.7855
+2026-06-28 21:58:30,178 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.8985
+2026-06-28 21:58:30,503 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 19.4324
+2026-06-28 21:58:31,112 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 19.6561
+2026-06-28 21:58:31,425 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 19.8288
+2026-06-28 21:58:32,180 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 18.5125
+2026-06-28 21:58:32,181 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 18.5125
+2026-06-28 21:58:32,210 [INFO] models.train - Ridge CV RMSE 18.6753
+2026-06-28 21:58:32,211 [INFO] models.train - CV winner: GradientBoosting CV RMSE 18.5125
+2026-06-28 21:58:32,804 [INFO] models.evaluate - [XGBoost] RMSE: 9.4525  MAE: 7.7134  R2: 0.8037
+2026-06-28 21:58:33,155 [INFO] models.evaluate - [RandomForest] RMSE: 9.4306  MAE: 7.0987  R2: 0.8046
+2026-06-28 21:58:33,624 [INFO] models.evaluate - [GradientBoosting] RMSE: 9.0801  MAE: 7.1385  R2: 0.8188
+2026-06-28 21:58:33,629 [INFO] models.evaluate - [Ridge] RMSE: 9.7874  MAE: 7.9394  R2: 0.7895
+2026-06-28 21:58:34,105 [INFO] models.evaluate - [GradientBoosting [CV WINNER]] RMSE: 9.0801  MAE: 7.1385  R2: 0.8188
+2026-06-28 21:58:54,376 [INFO] models.registry - Saved to GridFS: aqi_day1_GradientBoosting_20260628_165842.joblib id=6a4152c27807b08a5f0717da
+2026-06-28 21:58:58,134 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-28 21:58:58,144 [INFO] __main__ - Day1 pred — mean: 73.12  std: 30.95
+2026-06-28 21:58:58,145 [INFO] __main__ - Training Day2 model
+2026-06-28 21:58:58,146 [INFO] models.train - Training for target: aqi_day2
+2026-06-28 21:58:58,150 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-28 21:58:58,314 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 30.6623
+2026-06-28 21:58:58,549 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 30.6759
+2026-06-28 21:58:58,762 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 31.1162
+2026-06-28 21:58:58,892 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 30.8174
+2026-06-28 21:58:58,893 [INFO] models.train - Best XGB: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 30.6623
+2026-06-28 21:58:59,506 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 30.4641
+2026-06-28 21:59:00,338 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 30.2076
+2026-06-28 21:59:00,917 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 30.4561
+2026-06-28 21:59:01,656 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 30.7115
+2026-06-28 21:59:01,657 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 30.2076
+2026-06-28 21:59:01,978 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 30.6550
+2026-06-28 21:59:02,626 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 30.6178
+2026-06-28 21:59:02,952 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 30.3944
+2026-06-28 21:59:03,775 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 29.5741
+2026-06-28 21:59:03,776 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 29.5741
+2026-06-28 21:59:03,789 [INFO] models.train - Ridge CV RMSE 29.3394
+2026-06-28 21:59:03,791 [INFO] models.train - CV winner: Ridge CV RMSE 29.3394
+2026-06-28 21:59:03,848 [INFO] models.evaluate - [XGBoost] RMSE: 17.9679  MAE: 15.3241  R2: 0.2965
+2026-06-28 21:59:04,182 [INFO] models.evaluate - [RandomForest] RMSE: 17.8161  MAE: 14.6356  R2: 0.3083
+2026-06-28 21:59:04,668 [INFO] models.evaluate - [GradientBoosting] RMSE: 18.3113  MAE: 15.0297  R2: 0.2694
+2026-06-28 21:59:04,672 [INFO] models.evaluate - [Ridge] RMSE: 18.7896  MAE: 15.2009  R2: 0.2307
+2026-06-28 21:59:04,677 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 18.7896  MAE: 15.2009  R2: 0.2307
+2026-06-28 21:59:14,466 [INFO] models.registry - Saved to GridFS: aqi_day2_Ridge_20260628_165908.joblib id=6a4152dc7807b08a5f0717e0
+2026-06-28 21:59:15,084 [INFO] models.registry - Registered aqi_day2 v1
+2026-06-28 21:59:15,092 [INFO] __main__ - Day2 pred — mean: 72.98  std: 24.19
+2026-06-28 21:59:15,092 [INFO] __main__ - Training Day3 model
+2026-06-28 21:59:15,093 [INFO] models.train - Training for target: aqi_day3
+2026-06-28 21:59:15,098 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-28 21:59:15,282 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 36.4418
+2026-06-28 21:59:15,544 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 36.6448
+2026-06-28 21:59:15,740 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 36.6160
+2026-06-28 21:59:15,879 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 36.4408
+2026-06-28 21:59:15,879 [INFO] models.train - Best XGB: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 36.4408
+2026-06-28 21:59:16,479 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 34.4701
+2026-06-28 21:59:17,281 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 34.5686
+2026-06-28 21:59:17,856 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 34.4169
+2026-06-28 21:59:18,621 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 34.4641
+2026-06-28 21:59:18,622 [INFO] models.train - Best RF: {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 34.4169
+2026-06-28 21:59:18,951 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 35.5559
+2026-06-28 21:59:19,608 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 36.0257
+2026-06-28 21:59:19,939 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 35.9053
+2026-06-28 21:59:20,745 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 36.2270
+2026-06-28 21:59:20,745 [INFO] models.train - Best GB: {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 35.5559
+2026-06-28 21:59:20,755 [INFO] models.train - Ridge CV RMSE 37.5846
+2026-06-28 21:59:20,756 [INFO] models.train - CV winner: RandomForest CV RMSE 34.4169
+2026-06-28 21:59:20,996 [INFO] models.evaluate - [XGBoost] RMSE: 22.7007  MAE: 19.2667  R2: -0.1141
+2026-06-28 21:59:21,223 [INFO] models.evaluate - [RandomForest] RMSE: 20.9651  MAE: 18.0372  R2: 0.0498
+2026-06-28 21:59:21,426 [INFO] models.evaluate - [GradientBoosting] RMSE: 22.0041  MAE: 18.9284  R2: -0.0468
+2026-06-28 21:59:21,431 [INFO] models.evaluate - [Ridge] RMSE: 21.6862  MAE: 18.1588  R2: -0.0167
+2026-06-28 21:59:21,649 [INFO] models.evaluate - [RandomForest [CV WINNER]] RMSE: 20.9651  MAE: 18.0372  R2: 0.0498
+2026-06-28 21:59:33,460 [INFO] models.registry - Saved to GridFS: aqi_day3_RandomForest_20260628_165926.joblib id=6a4152ee7807b08a5f0717e4
+2026-06-28 21:59:34,267 [INFO] models.registry - Registered aqi_day3 v1
+2026-06-28 21:59:34,269 [INFO] __main__ - Complete in 75.0s | Day1 CV:18.5125 R2:0.8188 | Day2 CV:29.3394 R2:0.2307 | Day3 CV:34.4169 R2:0.0498
+2026-06-29 10:13:06,475 [INFO] __main__ - Training pipeline started
+2026-06-29 10:13:14,347 [INFO] __main__ - Loaded 356 daily training rows
+2026-06-29 10:13:14,349 [INFO] __main__ - Training Day1 model
+2026-06-29 10:13:14,349 [INFO] models.train - Training for target: aqi_day1
+2026-06-29 10:13:14,358 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-29 10:13:14,654 [INFO] models.train - Top 15 features: ['pm10_mean', 'pm2_5_mean', 'aqi_mean', 'aqi_last6h', 'wind_max', 'aqi_lag3d', 'aqi_trend_1d', 'humidity_mean', 'pressure_mean', 'aqi_std_7d', 'aqi_roll_mean_3', 'month_cos', 'aqi_roll_mean_7', 'aqi_max', 'temp_mean']
+2026-06-29 10:13:14,784 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.5246
+2026-06-29 10:13:14,979 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.9176
+2026-06-29 10:13:15,133 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.4055
+2026-06-29 10:13:15,234 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 20.6635
+2026-06-29 10:13:15,864 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 21.7302
+2026-06-29 10:13:16,623 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.8818
+2026-06-29 10:13:17,128 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 22.8767
+2026-06-29 10:13:17,835 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 21.7130
+2026-06-29 10:13:18,072 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 19.7958
+2026-06-29 10:13:18,539 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 19.7753
+2026-06-29 10:13:18,767 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 19.5468
+2026-06-29 10:13:19,367 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 19.1253
+2026-06-29 10:13:19,427 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 23.5723
+2026-06-29 10:13:19,483 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 23.3892
+2026-06-29 10:13:19,518 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 23.6403
+2026-06-29 10:13:19,582 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 23.1656
+2026-06-29 10:13:19,614 [INFO] models.train - Ridge CV RMSE 17.7661
+2026-06-29 10:13:19,615 [INFO] models.train - CV winner: Ridge CV RMSE 17.7661
+2026-06-29 10:13:19,706 [INFO] models.evaluate - [XGBoost] RMSE: 8.7345  MAE: 6.9609  R2: 0.8338
+2026-06-29 10:13:20,034 [INFO] models.evaluate - [RandomForest] RMSE: 9.1871  MAE: 6.7833  R2: 0.8161
+2026-06-29 10:13:20,365 [INFO] models.evaluate - [GradientBoosting] RMSE: 9.0987  MAE: 6.9488  R2: 0.8196
+2026-06-29 10:13:20,404 [INFO] models.evaluate - [LightGBM] RMSE: 8.6524  MAE: 6.7986  R2: 0.8369
+2026-06-29 10:13:20,410 [INFO] models.evaluate - [Ridge] RMSE: 9.3809  MAE: 7.6458  R2: 0.8082
+2026-06-29 10:13:20,415 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 9.3809  MAE: 7.6458  R2: 0.8082
+2026-06-29 10:13:28,378 [INFO] models.registry - Saved to GridFS: aqi_day1_Ridge_20260629_051324.joblib id=6a41fef425206db3819fe16e
+2026-06-29 10:13:28,990 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-29 16:26:52,995 [INFO] __main__ - Training pipeline started
+2026-06-29 16:27:00,820 [INFO] __main__ - Loaded 356 daily training rows
+2026-06-29 16:27:01,120 [INFO] models.train - Top 15 features: ['pm10_mean', 'pm2_5_mean', 'aqi_mean', 'aqi_last6h', 'wind_max', 'aqi_lag3d', 'aqi_trend_1d', 'humidity_mean', 'pressure_mean', 'aqi_std_7d', 'aqi_roll_mean_3', 'month_cos', 'aqi_roll_mean_7', 'aqi_max', 'temp_mean']
+2026-06-29 16:27:01,120 [INFO] __main__ - Base features selected: ['pm10_mean', 'pm2_5_mean', 'aqi_mean', 'aqi_last6h', 'wind_max', 'aqi_lag3d', 'aqi_trend_1d', 'humidity_mean', 'pressure_mean', 'aqi_std_7d', 'aqi_roll_mean_3', 'month_cos', 'aqi_roll_mean_7', 'aqi_max', 'temp_mean']
+2026-06-29 16:27:01,120 [INFO] __main__ - Training Day1 model
+2026-06-29 16:27:01,120 [INFO] models.train - Training for target: aqi_day1
+2026-06-29 16:27:01,122 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-29 16:27:01,143 [INFO] models.train - Top 15 features: ['pm10_mean', 'pm2_5_mean', 'aqi_mean', 'aqi_last6h', 'wind_max', 'aqi_lag3d', 'aqi_trend_1d', 'humidity_mean', 'pressure_mean', 'aqi_std_7d', 'aqi_roll_mean_3', 'month_cos', 'aqi_roll_mean_7', 'aqi_max', 'temp_mean']
+2026-06-29 16:27:01,328 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.5246
+2026-06-29 16:27:01,534 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.9176
+2026-06-29 16:27:01,732 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.4055
+2026-06-29 16:27:01,847 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 20.6635
+2026-06-29 16:27:02,838 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 21.7302
+2026-06-29 16:27:04,149 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.8818
+2026-06-29 16:27:05,167 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 22.8767
+2026-06-29 16:27:06,853 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 21.7130
+2026-06-29 16:27:07,196 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 19.7958
+2026-06-29 16:27:07,854 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 19.7753
+2026-06-29 16:27:08,184 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 19.5468
+2026-06-29 16:27:08,980 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 19.1253
+2026-06-29 16:27:09,054 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 23.5723
+2026-06-29 16:27:09,179 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 23.3892
+2026-06-29 16:27:09,252 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 23.6403
+2026-06-29 16:27:09,362 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 23.1656
+2026-06-29 16:27:09,395 [INFO] models.train - Ridge CV RMSE 17.7661
+2026-06-29 16:27:09,396 [INFO] models.train - CV winner: Ridge CV RMSE 17.7661
+2026-06-29 16:27:09,563 [INFO] models.evaluate - [XGBoost] RMSE: 8.7345  MAE: 6.9609  R2: 0.8338
+2026-06-29 16:27:10,263 [INFO] models.evaluate - [RandomForest] RMSE: 9.1871  MAE: 6.7833  R2: 0.8161
+2026-06-29 16:27:10,847 [INFO] models.evaluate - [GradientBoosting] RMSE: 9.0987  MAE: 6.9488  R2: 0.8196
+2026-06-29 16:27:10,913 [INFO] models.evaluate - [LightGBM] RMSE: 8.6524  MAE: 6.7986  R2: 0.8369
+2026-06-29 16:27:10,920 [INFO] models.evaluate - [Ridge] RMSE: 9.3809  MAE: 7.6458  R2: 0.8082
+2026-06-29 16:27:10,927 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 9.3809  MAE: 7.6458  R2: 0.8082
+2026-06-29 16:27:18,339 [INFO] models.registry - Saved to GridFS: aqi_day1_Ridge_20260629_112715.joblib id=6a42569327bf06bc8aae1707
+2026-06-29 16:27:18,894 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-29 16:27:18,901 [INFO] __main__ - Day1 pred mean: 73.13  std: 29.10
+2026-06-29 16:27:18,902 [INFO] __main__ - Training Day2 model
+2026-06-29 16:27:18,902 [INFO] models.train - Training for target: aqi_day2
+2026-06-29 16:27:18,907 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-29 16:27:19,004 [INFO] models.train - Top 15 features: ['aqi_trend_3d', 'pressure_mean', 'aqi_roll_mean_7', 'aqi_roll_mean_3', 'pred_day1', 'humidity_mean', 'aqi_lag3d', 'aqi_lag2d', 'aqi_std_7d', 'temp_mean', 'aqi_lag1d', 'dow', 'temp_min', 'aqi_lag7d', 'aqi_std']
+2026-06-29 16:27:19,191 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 35.5890
+2026-06-29 16:27:19,493 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 35.8734
+2026-06-29 16:27:19,749 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 35.1236
+2026-06-29 16:27:19,899 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 36.0043
+2026-06-29 16:27:20,976 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 33.6387
+2026-06-29 16:27:22,622 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 33.9871
+2026-06-29 16:27:23,770 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 33.7943
+2026-06-29 16:27:25,434 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 33.8694
+2026-06-29 16:27:25,777 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 34.4013
+2026-06-29 16:27:26,440 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 34.2149
+2026-06-29 16:27:26,773 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 34.6858
+2026-06-29 16:27:27,547 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 35.2184
+2026-06-29 16:27:27,610 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 33.9215
+2026-06-29 16:27:27,721 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 34.1216
+2026-06-29 16:27:27,779 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 34.9566
+2026-06-29 16:27:27,889 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 34.7734
+2026-06-29 16:27:27,907 [INFO] models.train - Ridge CV RMSE 36.1111
+2026-06-29 16:27:27,908 [INFO] models.train - CV winner: RandomForest CV RMSE 33.6387
+2026-06-29 16:27:28,343 [INFO] models.evaluate - [XGBoost] RMSE: 21.0782  MAE: 17.8397  R2: 0.0396
+2026-06-29 16:27:28,671 [INFO] models.evaluate - [RandomForest] RMSE: 20.3012  MAE: 17.0313  R2: 0.1091
+2026-06-29 16:27:29,045 [INFO] models.evaluate - [GradientBoosting] RMSE: 20.6796  MAE: 17.2771  R2: 0.0756
+2026-06-29 16:27:29,076 [INFO] models.evaluate - [LightGBM] RMSE: 20.7398  MAE: 17.6269  R2: 0.0702
+2026-06-29 16:27:29,084 [INFO] models.evaluate - [Ridge] RMSE: 19.6463  MAE: 16.8091  R2: 0.1657
+2026-06-29 16:27:29,498 [INFO] models.evaluate - [RandomForest [CV WINNER]] RMSE: 20.3012  MAE: 17.0313  R2: 0.1091
+2026-06-29 16:27:38,240 [INFO] models.registry - Saved to GridFS: aqi_day2_RandomForest_20260629_112733.joblib id=6a4256a527bf06bc8aae170b
+2026-06-29 16:27:38,846 [INFO] models.registry - Registered aqi_day2 v1
+2026-06-29 16:27:38,895 [INFO] __main__ - Day2 pred mean: 73.72  std: 22.19
+2026-06-29 16:27:38,896 [INFO] __main__ - Training Day3 model
+2026-06-29 16:27:38,896 [INFO] models.train - Training for target: aqi_day3
+2026-06-29 16:27:38,902 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-29 16:27:38,963 [INFO] models.train - Top 15 features: ['pred_day2', 'pressure_mean', 'aqi_std_7d', 'pm2_5_lag2d', 'aqi_roll_mean_7', 'pred_day1', 'humidity_mean', 'aqi_lag1d', 'aqi_lag3d', 'aqi_std', 'temp_min', 'aqi_trend_3d', 'aqi_mean', 'aqi_lag2d', 'month_cos']
+2026-06-29 16:27:39,098 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 35.1710
+2026-06-29 16:27:39,289 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 34.8691
+2026-06-29 16:27:39,454 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 35.4168
+2026-06-29 16:27:39,565 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 35.4323
+2026-06-29 16:27:40,170 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 33.5240
+2026-06-29 16:27:40,892 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 33.4936
+2026-06-29 16:27:41,415 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 33.4901
+2026-06-29 16:27:42,106 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 33.5937
+2026-06-29 16:27:42,337 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 33.6367
+2026-06-29 16:27:42,787 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 34.1860
+2026-06-29 16:27:43,023 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 34.6062
+2026-06-29 16:27:43,575 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 35.2853
+2026-06-29 16:27:43,624 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 34.4240
+2026-06-29 16:27:43,688 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 34.4420
+2026-06-29 16:27:43,727 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 34.9334
+2026-06-29 16:27:43,791 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 34.8501
+2026-06-29 16:27:43,806 [INFO] models.train - Ridge CV RMSE 29.3589
+2026-06-29 16:27:43,806 [INFO] models.train - CV winner: Ridge CV RMSE 29.3589
+2026-06-29 16:27:43,908 [INFO] models.evaluate - [XGBoost] RMSE: 23.1264  MAE: 19.741  R2: -0.1501
+2026-06-29 16:27:44,146 [INFO] models.evaluate - [RandomForest] RMSE: 22.0422  MAE: 18.4571  R2: -0.0447
+2026-06-29 16:27:44,282 [INFO] models.evaluate - [GradientBoosting] RMSE: 22.2492  MAE: 18.5615  R2: -0.0645
+2026-06-29 16:27:44,308 [INFO] models.evaluate - [LightGBM] RMSE: 22.4817  MAE: 18.9275  R2: -0.0868
+2026-06-29 16:27:44,315 [INFO] models.evaluate - [Ridge] RMSE: 22.7202  MAE: 18.6433  R2: -0.11
+2026-06-29 16:27:44,320 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 22.7202  MAE: 18.6433  R2: -0.11
+2026-06-29 16:27:51,874 [INFO] models.registry - Saved to GridFS: aqi_day3_Ridge_20260629_112748.joblib id=6a4256b427bf06bc8aae1711
+2026-06-29 16:27:52,349 [INFO] models.registry - Registered aqi_day3 v1
+2026-06-29 16:27:52,351 [INFO] __main__ - Complete in 59.4s | Day1 CV:17.7661 R2:0.8082 | Day2 CV:33.6387 R2:0.1091 | Day3 CV:29.3589 R2:-0.11
+2026-06-29 17:05:09,890 [INFO] __main__ - Training pipeline started
+2026-06-29 17:05:18,110 [INFO] __main__ - Loaded 356 daily training rows
+2026-06-29 17:05:18,111 [INFO] __main__ - Training Day1 model
+2026-06-29 17:05:18,112 [INFO] models.train - Training for target: aqi_day1
+2026-06-29 17:05:18,119 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-29 17:05:18,296 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.5440
+2026-06-29 17:05:18,555 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.8271
+2026-06-29 17:05:18,793 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.4378
+2026-06-29 17:05:18,933 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 20.2432
+2026-06-29 17:05:18,934 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 19.8271
+2026-06-29 17:05:19,560 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 21.8550
+2026-06-29 17:05:20,330 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 21.1030
+2026-06-29 17:05:20,897 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 22.8893
+2026-06-29 17:05:21,678 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 21.9080
+2026-06-29 17:05:21,679 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 21.1030
+2026-06-29 17:05:22,064 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 19.5912
+2026-06-29 17:05:22,798 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 19.4551
+2026-06-29 17:05:23,168 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 19.7736
+2026-06-29 17:05:24,071 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 19.0032
+2026-06-29 17:05:24,071 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 19.0032
+2026-06-29 17:05:24,254 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 24.0602
+2026-06-29 17:05:24,323 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 23.8207
+2026-06-29 17:05:24,360 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 23.5223
+2026-06-29 17:05:24,433 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 23.7343
+2026-06-29 17:05:24,433 [INFO] models.train - Best LGB: {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 23.5223
+2026-06-29 17:05:24,472 [INFO] models.train - Ridge CV RMSE 19.2084
+2026-06-29 17:05:24,473 [INFO] models.train - CV winner: GradientBoosting CV RMSE 19.0032
+2026-06-29 17:05:25,174 [INFO] models.evaluate - [XGBoost] RMSE: 8.9912  MAE: 7.1895  R2: 0.8238
+2026-06-29 17:05:25,499 [INFO] models.evaluate - [RandomForest] RMSE: 9.298  MAE: 6.9211  R2: 0.8116
+2026-06-29 17:05:26,082 [INFO] models.evaluate - [GradientBoosting] RMSE: 8.7486  MAE: 6.4037  R2: 0.8332
+2026-06-29 17:05:26,112 [INFO] models.evaluate - [LightGBM] RMSE: 8.5077  MAE: 7.0147  R2: 0.8423
+2026-06-29 17:05:26,120 [INFO] models.evaluate - [Ridge] RMSE: 9.6637  MAE: 7.7487  R2: 0.7965
+2026-06-29 17:05:26,702 [INFO] models.evaluate - [GradientBoosting [CV WINNER]] RMSE: 8.7486  MAE: 6.4037  R2: 0.8332
+2026-06-29 17:05:35,477 [INFO] models.registry - Saved to GridFS: aqi_day1_GradientBoosting_20260629_120530.joblib id=6a425f8a2225639d976159e5
+2026-06-29 17:05:36,195 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-29 17:05:36,203 [INFO] __main__ - Day1 pred mean: 73.07  std: 31.03
+2026-06-29 17:05:36,203 [INFO] __main__ - Training Day2 model
+2026-06-29 17:05:36,204 [INFO] models.train - Training for target: aqi_day2
+2026-06-29 17:05:36,207 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-29 17:05:36,382 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 32.0227
+2026-06-29 17:05:36,644 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 32.4529
+2026-06-29 17:05:36,863 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 31.7293
+2026-06-29 17:05:37,009 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 32.8852
+2026-06-29 17:05:37,009 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 31.7293
+2026-06-29 17:05:37,633 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 30.3833
+2026-06-29 17:05:38,456 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 30.5989
+2026-06-29 17:05:39,038 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 30.7200
+2026-06-29 17:05:39,774 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 31.0157
+2026-06-29 17:05:39,775 [INFO] models.train - Best RF: {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 30.3833
+2026-06-29 17:05:40,153 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 30.7517
+2026-06-29 17:05:40,900 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 30.2813
+2026-06-29 17:05:41,281 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 30.6939
+2026-06-29 17:05:42,224 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 30.4397
+2026-06-29 17:05:42,225 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 30.2813
+2026-06-29 17:05:42,278 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 31.4733
+2026-06-29 17:05:42,347 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 31.4880
+2026-06-29 17:05:42,385 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 32.2704
+2026-06-29 17:05:42,460 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 31.7538
+2026-06-29 17:05:42,460 [INFO] models.train - Best LGB: {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 31.4733
+2026-06-29 17:05:42,478 [INFO] models.train - Ridge CV RMSE 31.1183
+2026-06-29 17:05:42,478 [INFO] models.train - CV winner: GradientBoosting CV RMSE 30.2813
+2026-06-29 17:05:43,073 [INFO] models.evaluate - [XGBoost] RMSE: 17.7133  MAE: 14.5231  R2: 0.3218
+2026-06-29 17:05:43,311 [INFO] models.evaluate - [RandomForest] RMSE: 17.8897  MAE: 14.5925  R2: 0.3082
+2026-06-29 17:05:43,787 [INFO] models.evaluate - [GradientBoosting] RMSE: 18.0822  MAE: 14.7085  R2: 0.2932
+2026-06-29 17:05:43,817 [INFO] models.evaluate - [LightGBM] RMSE: 18.1727  MAE: 15.0251  R2: 0.2862
+2026-06-29 17:05:43,821 [INFO] models.evaluate - [Ridge] RMSE: 18.898  MAE: 14.9331  R2: 0.228
+2026-06-29 17:05:44,300 [INFO] models.evaluate - [GradientBoosting [CV WINNER]] RMSE: 18.0822  MAE: 14.7085  R2: 0.2932
+2026-06-29 17:05:54,395 [INFO] models.registry - Saved to GridFS: aqi_day2_GradientBoosting_20260629_120548.joblib id=6a425f9c2225639d976159eb
+2026-06-29 17:05:55,020 [INFO] models.registry - Registered aqi_day2 v1
+2026-06-29 17:05:55,030 [INFO] __main__ - Day2 pred mean: 73.32  std: 26.61
+2026-06-29 17:05:55,032 [INFO] __main__ - Training Day3 model
+2026-06-29 17:05:55,032 [INFO] models.train - Training for target: aqi_day3
+2026-06-29 17:05:55,037 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-29 17:05:55,213 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 33.9747
+2026-06-29 17:05:55,507 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 33.8379
+2026-06-29 17:05:55,731 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 33.8479
+2026-06-29 17:05:55,873 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 34.2425
+2026-06-29 17:05:55,874 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 33.8379
+2026-06-29 17:05:56,474 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 33.2400
+2026-06-29 17:05:57,289 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 33.3263
+2026-06-29 17:05:57,888 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 32.9719
+2026-06-29 17:05:58,668 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 33.2810
+2026-06-29 17:05:58,668 [INFO] models.train - Best RF: {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 32.9719
+2026-06-29 17:05:59,060 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 34.8852
+2026-06-29 17:05:59,826 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 34.7365
+2026-06-29 17:06:00,236 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 34.9203
+2026-06-29 17:06:01,267 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 35.0987
+2026-06-29 17:06:01,267 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 34.7365
+2026-06-29 17:06:01,311 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 33.6032
+2026-06-29 17:06:01,378 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 33.9320
+2026-06-29 17:06:01,416 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 33.7453
+2026-06-29 17:06:01,481 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 34.1561
+2026-06-29 17:06:01,481 [INFO] models.train - Best LGB: {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 33.6032
+2026-06-29 17:06:01,490 [INFO] models.train - Ridge CV RMSE 29.8266
+2026-06-29 17:06:01,491 [INFO] models.train - CV winner: Ridge CV RMSE 29.8266
+2026-06-29 17:06:01,618 [INFO] models.evaluate - [XGBoost] RMSE: 22.4018  MAE: 19.4327  R2: -0.0791
+2026-06-29 17:06:01,859 [INFO] models.evaluate - [RandomForest] RMSE: 21.2546  MAE: 18.1263  R2: 0.0286
+2026-06-29 17:06:02,350 [INFO] models.evaluate - [GradientBoosting] RMSE: 22.5526  MAE: 19.3129  R2: -0.0937
+2026-06-29 17:06:02,374 [INFO] models.evaluate - [LightGBM] RMSE: 21.5586  MAE: 18.4038  R2: 0.0006
+2026-06-29 17:06:02,380 [INFO] models.evaluate - [Ridge] RMSE: 21.0256  MAE: 17.0132  R2: 0.0494
+2026-06-29 17:06:02,385 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 21.0256  MAE: 17.0132  R2: 0.0494
+2026-06-29 17:06:09,922 [INFO] models.registry - Saved to GridFS: aqi_day3_Ridge_20260629_120606.joblib id=6a425fae2225639d976159f0
+2026-06-29 17:06:10,844 [INFO] models.registry - Registered aqi_day3 v1
+2026-06-29 17:06:10,848 [INFO] __main__ - Complete in 61.0s | Day1 CV:19.0032 R2:0.8332 | Day2 CV:30.2813 R2:0.2932 | Day3 CV:29.8266 R2:0.0494
+2026-06-30 16:34:50,105 [INFO] __main__ - Training pipeline started
+2026-06-30 16:34:58,315 [INFO] __main__ - Loaded 721 daily training rows
+2026-06-30 16:34:58,316 [INFO] __main__ - Training Day1 model
+2026-06-30 16:34:58,317 [INFO] models.train - Training for target: aqi_day1
+2026-06-30 16:34:58,331 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-30 16:34:58,599 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 15.4069
+2026-06-30 16:34:59,104 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 15.1514
+2026-06-30 16:34:59,456 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 15.6711
+2026-06-30 16:34:59,690 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 15.5964
+2026-06-30 16:34:59,690 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 15.1514
+2026-06-30 16:35:00,422 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 16.6259
+2026-06-30 16:35:01,413 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 15.7078
+2026-06-30 16:35:02,089 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 17.7016
+2026-06-30 16:35:03,030 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 16.7737
+2026-06-30 16:35:03,031 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 15.7078
+2026-06-30 16:35:03,910 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 16.1991
+2026-06-30 16:35:05,612 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 16.4579
+2026-06-30 16:35:06,474 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 16.3204
+2026-06-30 16:35:08,638 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 15.6397
+2026-06-30 16:35:08,638 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 15.6397
+2026-06-30 16:35:08,908 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 17.7124
+2026-06-30 16:35:09,014 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 17.6896
+2026-06-30 16:35:09,071 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 17.3853
+2026-06-30 16:35:09,176 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 17.3114
+2026-06-30 16:35:09,176 [INFO] models.train - Best LGB: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 17.3114
+2026-06-30 16:35:09,215 [INFO] models.train - Ridge CV RMSE 14.0070
+2026-06-30 16:35:09,216 [INFO] models.train - CV winner: Ridge CV RMSE 14.0070
+2026-06-30 16:35:09,394 [INFO] models.evaluate - [XGBoost] RMSE: 10.1081  MAE: 7.7827  R2: 0.8657
+2026-06-30 16:35:09,749 [INFO] models.evaluate - [RandomForest] RMSE: 10.2986  MAE: 7.6647  R2: 0.8606
+2026-06-30 16:35:11,220 [INFO] models.evaluate - [GradientBoosting] RMSE: 10.1081  MAE: 7.5931  R2: 0.8657
+2026-06-30 16:35:11,275 [INFO] models.evaluate - [LightGBM] RMSE: 10.2521  MAE: 7.7923  R2: 0.8619
+2026-06-30 16:35:11,286 [INFO] models.evaluate - [Ridge] RMSE: 10.709  MAE: 8.5122  R2: 0.8493
+2026-06-30 16:35:11,299 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 10.709  MAE: 8.5122  R2: 0.8493
+2026-06-30 16:35:18,967 [INFO] models.registry - Saved to GridFS: aqi_day1_Ridge_20260630_113515.joblib id=6a43a9f3c9211c5f65adad60
+2026-06-30 16:35:19,551 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-30 16:46:15,224 [INFO] __main__ - Training pipeline started
+2026-06-30 16:46:23,815 [INFO] __main__ - Loaded 721 daily training rows
+2026-06-30 16:46:23,823 [INFO] __main__ - Training Day1 model
+2026-06-30 16:46:23,825 [INFO] models.train - Training for target: aqi_day1
+2026-06-30 16:46:23,857 [INFO] models.train - Leakage check passed for aqi_day1
+2026-06-30 16:46:24,392 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 13.6394
+2026-06-30 16:46:25,343 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 13.3522
+2026-06-30 16:46:26,005 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 13.4021
+2026-06-30 16:46:26,391 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 13.2019
+2026-06-30 16:46:26,391 [INFO] models.train - Best XGB: {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 13.2019
+2026-06-30 16:46:27,500 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 15.9554
+2026-06-30 16:46:28,927 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 14.9473
+2026-06-30 16:46:30,673 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 16.8903
+2026-06-30 16:46:33,307 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 16.0927
+2026-06-30 16:46:33,308 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 14.9473
+2026-06-30 16:46:35,644 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 13.7400
+2026-06-30 16:46:40,213 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 13.4118
+2026-06-30 16:46:42,504 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 13.5538
+2026-06-30 16:46:48,348 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 13.8657
+2026-06-30 16:46:48,348 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 13.4118
+2026-06-30 16:46:48,899 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 16.3295
+2026-06-30 16:46:49,194 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 15.7837
+2026-06-30 16:46:49,319 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 15.2701
+2026-06-30 16:46:49,598 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 15.3080
+2026-06-30 16:46:49,598 [INFO] models.train - Best LGB: {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 15.2701
+2026-06-30 16:46:49,679 [INFO] models.train - Ridge CV RMSE 12.3910
+2026-06-30 16:46:49,680 [INFO] models.train - CV winner: Ridge CV RMSE 12.3910
+2026-06-30 16:46:49,880 [INFO] models.evaluate - [XGBoost] RMSE: 8.1666  MAE: 6.1798  R2: 0.9124
+2026-06-30 16:46:50,645 [INFO] models.evaluate - [RandomForest] RMSE: 9.2295  MAE: 6.9807  R2: 0.8881
+2026-06-30 16:46:53,517 [INFO] models.evaluate - [GradientBoosting] RMSE: 8.5679  MAE: 6.6229  R2: 0.9035
+2026-06-30 16:46:53,626 [INFO] models.evaluate - [LightGBM] RMSE: 8.6135  MAE: 6.4443  R2: 0.9025
+2026-06-30 16:46:53,641 [INFO] models.evaluate - [Ridge] RMSE: 9.7812  MAE: 8.0126  R2: 0.8743
+2026-06-30 16:46:53,656 [INFO] models.evaluate - [Ridge [CV WINNER]] RMSE: 9.7812  MAE: 8.0126  R2: 0.8743
+2026-06-30 16:47:00,754 [INFO] models.registry - Saved to GridFS: aqi_day1_Ridge_20260630_114657.joblib id=6a43acb10763e3840e1854fd
+2026-06-30 16:47:01,269 [INFO] models.registry - Registered aqi_day1 v1
+2026-06-30 16:47:01,350 [INFO] __main__ - Day1 pred mean: 73.86  std: 30.29
+2026-06-30 16:47:01,352 [INFO] __main__ - Training Day2 model
+2026-06-30 16:47:01,353 [INFO] models.train - Training for target: aqi_day2
+2026-06-30 16:47:01,386 [INFO] models.train - Leakage check passed for aqi_day2
+2026-06-30 16:47:01,900 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.7089
+2026-06-30 16:47:02,999 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 20.4066
+2026-06-30 16:47:03,815 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.3583
+2026-06-30 16:47:04,297 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 20.4411
+2026-06-30 16:47:04,298 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 20.3583
+2026-06-30 16:47:06,012 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 23.1865
+2026-06-30 16:47:08,419 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 22.3107
+2026-06-30 16:47:10,255 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 23.7496
+2026-06-30 16:47:12,271 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 23.1552
+2026-06-30 16:47:12,272 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 22.3107
+2026-06-30 16:47:14,080 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 20.3421
+2026-06-30 16:47:17,693 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 20.1674
+2026-06-30 16:47:19,580 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 20.4478
+2026-06-30 16:47:24,141 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 20.1058
+2026-06-30 16:47:24,141 [INFO] models.train - Best GB: {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 20.1058
+2026-06-30 16:47:24,250 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 21.5764
+2026-06-30 16:47:24,419 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 21.3417
+2026-06-30 16:47:24,513 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 20.7588
+2026-06-30 16:47:24,683 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 20.8311
+2026-06-30 16:47:24,683 [INFO] models.train - Best LGB: {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 20.7588
+2026-06-30 16:47:24,725 [INFO] models.train - Ridge CV RMSE 21.5492
+2026-06-30 16:47:24,725 [INFO] models.train - CV winner: GradientBoosting CV RMSE 20.1058
+2026-06-30 16:47:28,094 [INFO] models.evaluate - [XGBoost] RMSE: 15.3084  MAE: 11.8595  R2: 0.6947
+2026-06-30 16:47:28,644 [INFO] models.evaluate - [RandomForest] RMSE: 16.9111  MAE: 12.8549  R2: 0.6274
+2026-06-30 16:47:31,756 [INFO] models.evaluate - [GradientBoosting] RMSE: 16.7773  MAE: 12.9782  R2: 0.6333
+2026-06-30 16:47:31,810 [INFO] models.evaluate - [LightGBM] RMSE: 15.9735  MAE: 12.2926  R2: 0.6676
+2026-06-30 16:47:31,828 [INFO] models.evaluate - [Ridge] RMSE: 17.5177  MAE: 14.0865  R2: 0.6002
+2026-06-30 16:47:34,941 [INFO] models.evaluate - [GradientBoosting [CV WINNER]] RMSE: 16.7773  MAE: 12.9782  R2: 0.6333
+2026-06-30 16:47:43,559 [INFO] models.registry - Saved to GridFS: aqi_day2_GradientBoosting_20260630_114739.joblib id=6a43acdb0763e3840e185501
+2026-06-30 16:47:44,202 [INFO] models.registry - Registered aqi_day2 v1
+2026-06-30 16:47:44,229 [INFO] __main__ - Day2 pred mean: 74.09  std: 30.83
+2026-06-30 16:47:44,230 [INFO] __main__ - Training Day3 model
+2026-06-30 16:47:44,230 [INFO] models.train - Training for target: aqi_day3
+2026-06-30 16:47:44,251 [INFO] models.train - Leakage check passed for aqi_day3
+2026-06-30 16:47:44,677 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 18.5635
+2026-06-30 16:47:45,394 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 17.9290
+2026-06-30 16:47:45,944 [INFO] models.train - XGB {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.03, 'subsample': 0.9} CV RMSE 18.0165
+2026-06-30 16:47:46,306 [INFO] models.train - XGB {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.8} CV RMSE 18.1190
+2026-06-30 16:47:46,307 [INFO] models.train - Best XGB: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 0.8} CV RMSE 17.9290
+2026-06-30 16:47:47,363 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 8, 'max_features': 0.7} CV RMSE 21.1349
+2026-06-30 16:47:48,783 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.1509
+2026-06-30 16:47:49,801 [INFO] models.train - RF {'n_estimators': 200, 'max_depth': 6, 'min_samples_leaf': 10, 'max_features': 0.8} CV RMSE 21.9521
+2026-06-30 16:47:51,248 [INFO] models.train - RF {'n_estimators': 300, 'max_depth': 5, 'min_samples_leaf': 8, 'max_features': 0.6} CV RMSE 21.1358
+2026-06-30 16:47:51,249 [INFO] models.train - Best RF: {'n_estimators': 300, 'max_depth': 8, 'min_samples_leaf': 6, 'max_features': 0.7} CV RMSE 20.1509
+2026-06-30 16:47:53,168 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 3} CV RMSE 18.1877
+2026-06-30 16:47:56,806 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.03, 'max_depth': 3} CV RMSE 18.2280
+2026-06-30 16:47:58,638 [INFO] models.train - GB {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 17.9200
+2026-06-30 16:48:03,380 [INFO] models.train - GB {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 4} CV RMSE 18.2768
+2026-06-30 16:48:03,380 [INFO] models.train - Best GB: {'n_estimators': 100, 'learning_rate': 0.1, 'max_depth': 3} CV RMSE 17.9200
+2026-06-30 16:48:03,498 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.05, 'num_leaves': 15, 'max_depth': 4} CV RMSE 20.2224
+2026-06-30 16:48:03,674 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 20, 'max_depth': 5} CV RMSE 19.9011
+2026-06-30 16:48:03,760 [INFO] models.train - LGB {'n_estimators': 100, 'learning_rate': 0.1, 'num_leaves': 15, 'max_depth': 3} CV RMSE 19.4079
+2026-06-30 16:48:03,931 [INFO] models.train - LGB {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 19.3064
+2026-06-30 16:48:03,932 [INFO] models.train - Best LGB: {'n_estimators': 200, 'learning_rate': 0.05, 'num_leaves': 25, 'max_depth': 5} CV RMSE 19.3064
+2026-06-30 16:48:03,975 [INFO] models.train - Ridge CV RMSE 18.2291
+2026-06-30 16:48:03,976 [INFO] models.train - CV winner: GradientBoosting CV RMSE 17.9200
+2026-06-30 16:48:05,484 [INFO] models.evaluate - [XGBoost] RMSE: 18.3035  MAE: 13.6145  R2: 0.5465
+2026-06-30 16:48:06,040 [INFO] models.evaluate - [RandomForest] RMSE: 19.8682  MAE: 14.7069  R2: 0.4656
+2026-06-30 16:48:07,265 [INFO] models.evaluate - [GradientBoosting] RMSE: 18.8694  MAE: 13.61  R2: 0.518
+2026-06-30 16:48:07,367 [INFO] models.evaluate - [LightGBM] RMSE: 18.3308  MAE: 13.4739  R2: 0.5451
+2026-06-30 16:48:07,381 [INFO] models.evaluate - [Ridge] RMSE: 17.4301  MAE: 14.0011  R2: 0.5887
+2026-06-30 16:48:08,599 [INFO] models.evaluate - [GradientBoosting [CV WINNER]] RMSE: 18.8694  MAE: 13.61  R2: 0.518
+2026-06-30 16:48:19,071 [INFO] models.registry - Saved to GridFS: aqi_day3_GradientBoosting_20260630_114813.joblib id=6a43acfd0763e3840e185507
+2026-06-30 16:48:19,792 [INFO] models.registry - Registered aqi_day3 v1
+2026-06-30 16:48:19,795 [INFO] __main__ - Complete in 124.6s | Day1 CV:12.391 R2:0.8743 | Day2 CV:20.1058 R2:0.6333 | Day3 CV:17.92 R2:0.518

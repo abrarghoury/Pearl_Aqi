@@ -1,0 +1,18 @@
+[theme]
+base = "dark"
+
+# This is what actually removes the red — Streamlit's built-in focus rings,
+# button ripples, and any "active" widget color are driven by primaryColor.
+# CSS !important on page-level styles cannot reliably override this because
+# it comes from Streamlit's own theme engine, not a stylesheet rule.
+primaryColor = "#388bfd"
+
+# Page background
+backgroundColor = "#0b0e14"
+
+# Sidebar + widget background — deliberately lighter/bluer than
+# backgroundColor above so the sidebar reads as a clearly separate panel.
+secondaryBackgroundColor = "#161b22"
+
+textColor = "#f5f5f5"
+font = "sans serif"
