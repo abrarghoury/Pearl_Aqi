@@ -1,6 +1,5 @@
 import pandas as pd
 from pymongo import MongoClient, ASCENDING, ReplaceOne
-
 from config.settings import settings
 
 
@@ -28,6 +27,10 @@ def _bulk_upsert(col, records: list, key_field: str) -> tuple:
     feature_store → key_field = "date"
     Safe to rerun — no duplicates created.
     """
+    if not records:
+        # Nothing to write — avoid pymongo's "No operations to execute" crash
+        return 0, 0
+
     operations = [
         ReplaceOne(
             {key_field: record[key_field]},
@@ -36,7 +39,6 @@ def _bulk_upsert(col, records: list, key_field: str) -> tuple:
         )
         for record in records
     ]
-
     result = col.bulk_write(operations, ordered=False)
     return result.upserted_count, result.modified_count
 
@@ -46,10 +48,13 @@ def save_raw(df: pd.DataFrame) -> int:
     Save hourly raw data to raw_readings collection.
     Key field: timestamp — one row per hour.
     """
+    if df.empty:
+        print("[FeatureStore] Raw: no rows to save — skipping.")
+        return 0
+
     _ensure_indexes()
     col     = _get_collection(settings.COLLECTION_RAW)
     records = df.to_dict(orient="records")
-
     inserted, updated = _bulk_upsert(col, records, key_field="timestamp")
     print(f"[FeatureStore] Raw: {inserted} new, {updated} updated — {len(records)} total")
     return inserted
@@ -60,11 +65,23 @@ def save_features(df: pd.DataFrame) -> int:
     Save daily aggregated features to feature_store collection.
     Key field: date — one row per day.
     Safe to rerun — existing dates get updated, new dates get inserted.
+
+    NOTE: In the early days of a fresh pipeline (or whenever there isn't
+    enough historical raw data yet to compute rolling/lag features), the
+    feature engineering step may legitimately produce zero valid rows.
+    This is expected during cold-start and should not crash the run —
+    it will resolve itself once enough daily history accumulates.
     """
+    if df.empty:
+        print(
+            "[FeatureStore] Features: no valid rows to save this run "
+            "(likely not enough historical data yet for rolling features) — skipping."
+        )
+        return 0
+
     _ensure_indexes()
     col     = _get_collection(settings.COLLECTION_FEATURES)
     records = df.to_dict(orient="records")
-
     inserted, updated = _bulk_upsert(col, records, key_field="date")
     print(f"[FeatureStore] Features: {inserted} new, {updated} updated — {len(records)} total")
     return inserted
@@ -77,13 +94,11 @@ def load_training_data() -> pd.DataFrame:
     Returns DataFrame sorted by date ascending.
     """
     col = _get_collection(settings.COLLECTION_FEATURES)
-
     query = {
         settings.TARGET_DAY1: {"$exists": True},
         settings.TARGET_DAY2: {"$exists": True},
         settings.TARGET_DAY3: {"$exists": True},
     }
-
     records = list(col.find(query, {"_id": 0}))
 
     if not records:
@@ -94,7 +109,6 @@ def load_training_data() -> pd.DataFrame:
     df = pd.DataFrame(records)
     df["date"] = pd.to_datetime(df["date"])
     df = df.sort_values("date").reset_index(drop=True)
-
     print(f"[FeatureStore] Loaded {len(df)} training rows from MongoDB")
     return df
 
@@ -106,7 +120,6 @@ def load_latest_features() -> pd.DataFrame:
     Returns single row DataFrame with all feature columns.
     """
     col = _get_collection(settings.COLLECTION_FEATURES)
-
     records = list(
         col.find({}, {"_id": 0})
         .sort("date", -1)
@@ -120,7 +133,6 @@ def load_latest_features() -> pd.DataFrame:
 
     df = pd.DataFrame(records)
     df["date"] = pd.to_datetime(df["date"])
-
     print(f"[FeatureStore] Loaded latest daily row: {df['date'].iloc[0].date()}")
     return df
 
