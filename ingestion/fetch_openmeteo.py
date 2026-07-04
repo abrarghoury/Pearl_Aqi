@@ -82,7 +82,12 @@ def _fetch_forecast_weather(client) -> pd.DataFrame:
         "longitude":  settings.CITY_LON,
         "hourly":     settings.FORECAST_WEATHER_VARIABLES,
         "timezone":   settings.TIMEZONE,
-        "forecast_days": settings.FORECAST_DAYS,
+        # Open-Meteo's forecast_days counts "today" as day 0, so
+        # forecast_days=3 only returns today + 2 future days
+        # (today, today+1, today+2) — today+3 would be missing.
+        # We need today+1, today+2, AND today+3 (3 full future days
+        # for fc_*_d1/d2/d3), so request one extra day of buffer.
+        "forecast_days": settings.FORECAST_DAYS + 1,
     }
     responses = client.weather_api(settings.OPENMETEO_FORECAST_URL, params=params)
     df = _parse_hourly_response(responses[0], settings.FORECAST_WEATHER_VARIABLES)
