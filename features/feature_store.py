@@ -87,6 +87,34 @@ def save_features(df: pd.DataFrame) -> int:
     return inserted
 
 
+def load_recent_raw(days: int) -> pd.DataFrame:
+    """
+    Load the last `days` days of hourly raw data from MongoDB
+    (raw_readings collection).
+
+    Needed because daily-mode fetch_raw_data() only pulls the last
+    3 days from the API each run. Lag/rolling features (e.g. 7-day
+    lag, 7-day rolling mean/std) need more history than that — so we
+    pull the accumulated history back out of MongoDB and combine it
+    with the freshly fetched data before computing features.
+    """
+    col    = _get_collection(settings.COLLECTION_RAW)
+    cutoff = pd.Timestamp.utcnow().tz_localize(None) - pd.Timedelta(days=days)
+
+    records = list(
+        col.find({"timestamp": {"$gte": cutoff}}, {"_id": 0})
+        .sort("timestamp", 1)
+    )
+
+    if not records:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(records)
+    df["timestamp"] = pd.to_datetime(df["timestamp"])
+    print(f"[FeatureStore] Loaded {len(df)} historical hourly rows (last {days} days) for feature computation")
+    return df
+
+
 def load_training_data() -> pd.DataFrame:
     """
     Load all daily rows that have all 3 target columns.
