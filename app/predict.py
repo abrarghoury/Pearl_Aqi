@@ -15,6 +15,7 @@ from pymongo import MongoClient
 
 from config.settings import settings
 from models.registry import load_model, get_model_metadata
+from features.feature_store import load_current_aqi  # 🆕 ADDED
 
 logger = logging.getLogger(__name__)
 
@@ -335,7 +336,19 @@ def run_prediction() -> dict:
     past_preds      = _load_past_predictions(days=14)
 
     latest_date = latest_row["date"].iloc[0]
-    latest_aqi  = float(latest_row["aqi_mean"].iloc[0]) if "aqi_mean" in latest_row.columns else 0.0
+
+    # 🆕 ADDED — "Current AQI" now prefers the live hourly reading saved
+    # by the feature pipeline's Step 4b (current_aqi collection), which
+    # can include today's partial-day data. Falls back to the old
+    # complete-day aqi_mean behavior if no live reading is available yet,
+    # so nothing breaks if that collection is empty.
+    current_doc = load_current_aqi()
+    if current_doc.get("aqi") is not None:
+        latest_aqi      = float(current_doc["aqi"])
+        latest_aqi_date = current_doc.get("timestamp", latest_date)
+    else:
+        latest_aqi      = float(latest_row["aqi_mean"].iloc[0]) if "aqi_mean" in latest_row.columns else 0.0
+        latest_aqi_date = latest_date
 
     shap_background_raw = feature_history.copy() if not feature_history.empty else latest_row.copy()
 
@@ -397,7 +410,7 @@ def run_prediction() -> dict:
 
     results = {
         "prediction_date":  latest_date + timedelta(days=1),
-        "latest_date":      latest_date,
+        "latest_date":      latest_aqi_date,  # 🆕 CHANGED — was latest_date; now reflects live reading's date/time when available
         "latest_aqi":       latest_aqi,
 
         "day1": {
