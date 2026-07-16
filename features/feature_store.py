@@ -168,3 +168,36 @@ def load_latest_features() -> pd.DataFrame:
 def get_feature_count() -> int:
     col = _get_collection(settings.COLLECTION_FEATURES)
     return col.count_documents({})
+
+
+# 🆕 ADDED — small, separate collection just for the live "Current AQI"
+# dashboard number. Never touched by training/feature pipeline logic.
+def save_current_aqi(aqi_value: float, timestamp) -> None:
+    """
+    Saves the single latest hourly AQI reading to its own small
+    collection — separate from feature_store, never used in training.
+    """
+    if aqi_value is None:
+        print("[FeatureStore] Current AQI: nothing to save — skipping.")
+        return
+
+    col = _get_collection("current_aqi")
+    col.update_one(
+        {"city": settings.CITY_NAME},
+        {"$set": {
+            "city":       settings.CITY_NAME,
+            "aqi":        aqi_value,
+            "timestamp":  timestamp,
+            "updated_at": pd.Timestamp.utcnow().tz_localize(None),
+        }},
+        upsert=True,
+    )
+    print(f"[FeatureStore] Current AQI saved: {aqi_value:.1f}")
+
+
+# 🆕 ADDED — reads back the live current AQI for the dashboard.
+def load_current_aqi() -> dict:
+    """Loads the latest live hourly AQI reading for dashboard display."""
+    col = _get_collection("current_aqi")
+    doc = col.find_one({"city": settings.CITY_NAME}, {"_id": 0})
+    return doc or {}
