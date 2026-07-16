@@ -238,3 +238,42 @@ def fetch_raw_data() -> pd.DataFrame:
     print(f"[Fetch] Columns: {list(merged.columns)}")
 
     return merged
+
+
+# 🆕 ADDED — fetches today's (possibly partial) hourly AQI, used ONLY
+# for the dashboard's "Current AQI" display. Completely separate from
+# fetch_raw_data() / the feature pipeline, so it can never affect
+# aqi_mean, lag, rolling, or any training feature.
+def fetch_current_aqi() -> dict:
+    """
+    Fetches TODAY's hourly AQI only (may be a partial day) and returns
+    the most recent available hour's reading. Used ONLY for the
+    "Current AQI" dashboard display — kept separate from the daily
+    feature pipeline so an incomplete day never pollutes aqi_mean,
+    lag, or rolling features.
+    """
+    client = _build_client()
+    today  = str(datetime.utcnow().date())
+
+    params = {
+        "latitude":   settings.CITY_LAT,
+        "longitude":  settings.CITY_LON,
+        "hourly":     settings.AQ_VARIABLES,
+        "timezone":   settings.TIMEZONE,
+        "start_date": today,
+        "end_date":   today,
+    }
+    responses = client.weather_api(settings.OPENMETEO_AQ_URL, params=params)
+    df = _parse_hourly_response(responses[0], settings.AQ_VARIABLES)
+    df = df.rename(columns=settings.COLUMN_RENAME_MAP)
+
+    # Future hours of "today" come back as NaN — drop them
+    df = df.dropna(subset=["aqi"])
+
+    if df.empty:
+        print("[Fetch] No current-hour AQI available yet for today")
+        return {"aqi": None, "timestamp": None}
+
+    latest = df.sort_values("timestamp").iloc[-1]
+    print(f"[Fetch] Current AQI: {latest['aqi']:.1f} at {latest['timestamp']}")
+    return {"aqi": float(latest["aqi"]), "timestamp": latest["timestamp"]}
