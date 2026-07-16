@@ -8,8 +8,9 @@ from features.feature_store import (
     save_raw,
     save_features,
     load_recent_raw,
+    save_current_aqi,   # 🆕 ADDED
 )
-from ingestion.fetch_openmeteo import fetch_raw_data, fetch_forecast_features
+from ingestion.fetch_openmeteo import fetch_raw_data, fetch_forecast_features, fetch_current_aqi  # 🆕 ADDED fetch_current_aqi
 
 import pandas as pd
 
@@ -71,6 +72,18 @@ def run():
     except Exception as e:
         print(f"  Warning: forecast fetch failed ({e}) — continuing without it")
         forecast_dict = None
+
+    # 🆕 ADDED — Step 4b: fetch + save today's live hourly AQI, used ONLY
+    # for the dashboard's "Current AQI" display. Completely separate from
+    # the feature/training data below — cannot affect aqi_mean, lag,
+    # rolling, or any model feature.
+    print("\n[Step 4b] Fetching current-hour AQI (for dashboard display only) ...")
+    try:
+        current = fetch_current_aqi()
+        if current["aqi"] is not None:
+            save_current_aqi(current["aqi"], current["timestamp"])
+    except Exception as e:
+        print(f"  Warning: current AQI fetch failed ({e}) — continuing without it")
 
     # Step 5 — combine freshly fetched data with stored history
     # so lag/rolling features (7-day lag, 7-day rolling mean/std) have
