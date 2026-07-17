@@ -1,0 +1,44 @@
+name: Current AQI — Hourly
+
+on:
+  schedule:
+    # Runs at the top of every hour — matches project spec:
+    # "the feature script every hour"
+    - cron: "0 * * * *"
+  workflow_dispatch:  # manual trigger from GitHub UI
+
+jobs:
+  fetch-current-aqi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run current AQI pipeline
+        env:
+          MONGODB_URI:     ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
+          CITY_NAME:       ${{ secrets.CITY_NAME }}
+          CITY_LAT:        ${{ secrets.CITY_LAT }}
+          CITY_LON:        ${{ secrets.CITY_LON }}
+          TIMEZONE:        ${{ secrets.TIMEZONE }}
+          PIPELINE_MODE:   daily
+        run: python -m pipelines.current_aqi_pipeline
