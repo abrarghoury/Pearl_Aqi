@@ -1,5 +1,6 @@
 import time
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import openmeteo_requests
 import pandas as pd
@@ -15,8 +16,19 @@ def _build_client():
     return openmeteo_requests.Client(session=retry_session)
 
 
+def _local_today():
+    """
+    Returns today's date in the city's local timezone (settings.TIMEZONE),
+    not UTC. Using UTC directly can be off by a day for cities ahead of
+    UTC (e.g. Istanbul, UTC+3) during the hours between local midnight
+    and UTC midnight, causing date ranges and forecast day offsets to
+    shift by a day depending on what time the pipeline happens to run.
+    """
+    return datetime.now(ZoneInfo(settings.TIMEZONE)).date()
+
+
 def _get_date_range():
-    today = datetime.utcnow().date()
+    today = _local_today()
 
     if settings.PIPELINE_MODE == "backfill":
         start = today - timedelta(days=settings.BACKFILL_DAYS)
@@ -165,7 +177,7 @@ def fetch_forecast_features() -> dict:
     raw    = _fetch_forecast_weather(client)
     daily  = _aggregate_forecast_to_daily(raw)
 
-    today = datetime.utcnow().date()
+    today = _local_today()
     features = {}
 
     for i in range(1, settings.FORECAST_DAYS + 1):
@@ -240,20 +252,16 @@ def fetch_raw_data() -> pd.DataFrame:
     return merged
 
 
-# 🆕 ADDED — fetches today's (possibly partial) hourly AQI, used ONLY
-# for the dashboard's "Current AQI" display. Completely separate from
-# fetch_raw_data() / the feature pipeline, so it can never affect
-# aqi_mean, lag, rolling, or any training feature.
 def fetch_current_aqi() -> dict:
     """
     Fetches TODAY's hourly AQI only (may be a partial day) and returns
-    the most recent available hour's reading. Used ONLY for the
+    the most recent available hour's reading. Used only for the
     "Current AQI" dashboard display — kept separate from the daily
     feature pipeline so an incomplete day never pollutes aqi_mean,
     lag, or rolling features.
     """
     client = _build_client()
-    today  = str(datetime.utcnow().date())
+    today  = str(_local_today())
 
     params = {
         "latitude":   settings.CITY_LAT,
