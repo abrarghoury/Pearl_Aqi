@@ -15,7 +15,7 @@ from pymongo import MongoClient
 
 from config.settings import settings
 from models.registry import load_model, get_model_metadata
-from features.feature_store import load_current_aqi  # 🆕 ADDED
+from features.feature_store import load_current_aqi  
 
 logger = logging.getLogger(__name__)
 
@@ -337,7 +337,34 @@ def run_prediction() -> dict:
 
     latest_date = latest_row["date"].iloc[0]
 
-    # 🆕 ADDED — "Current AQI" now prefers the live hourly reading saved
+    # — prediction_date must anchor to the REAL current date, not
+    # to feature_store's latest_date. feature_store's latest row is always
+    # built from "yesterday" (fetch_openmeteo._get_date_range() sets
+    # end = today - 1 by design, since "today" isn't complete yet). If the
+    # daily feature pipeline run is delayed, skipped, or hasn't fired yet
+    # for the current day, latest_date can silently fall 2+ days behind
+    # the real calendar date — which previously caused prediction_date
+    # (and the whole Day1/Day2/Day3 forecast row) to drift backwards
+    # (e.g. showing 29/30/31 July when today is actually 30 July, while
+    # the "Current AQI" — sourced from the hourly current_aqi collection
+    # — correctly showed 30 July). Anchoring to real "today" keeps the
+    # 3-day forecast always meaning "tomorrow, the day after, and the day
+    # after that" relative to the actual current date, regardless of how
+    # stale feature_store happens to be.
+    real_today = pd.Timestamp(datetime.utcnow().date())
+    prediction_date = real_today + timedelta(days=1)
+
+    staleness_days = (real_today - pd.Timestamp(latest_date.date())).days
+    if staleness_days > 1:
+        logger.warning(
+            "Feature store data is stale: latest feature row is from %s, "
+            "but today is %s (%d day(s) behind). Forecast is still anchored "
+            "to today's date, but is being computed from older features — "
+            "run the feature pipeline to refresh.",
+            latest_date.date(), real_today.date(), staleness_days,
+        )
+
+    # — "Current AQI" now prefers the live hourly reading saved
     # by the feature pipeline's Step 4b (current_aqi collection), which
     # can include today's partial-day data. Falls back to the old
     # complete-day aqi_mean behavior if no live reading is available yet,
@@ -409,8 +436,8 @@ def run_prediction() -> dict:
     base_day3 = _get_base_value(model_day3, shap_bg_day3)
 
     results = {
-        "prediction_date":  latest_date + timedelta(days=1),
-        "latest_date":      latest_aqi_date,  # 🆕 CHANGED — was latest_date; now reflects live reading's date/time when available
+        "prediction_date":  prediction_date,  
+        "latest_date":      latest_aqi_date,  
         "latest_aqi":       latest_aqi,
 
         "day1": {
