@@ -320,14 +320,17 @@ def _save_prediction(prediction_date: datetime, results: dict):
 
 
 # ---------------------------------------------------------------------------
-# Main entry point
+# Core prediction logic (no Streamlit dependency)
 # ---------------------------------------------------------------------------
 
-@st.cache_data(ttl=3600, show_spinner=False)
-def run_prediction() -> dict:
+def _generate_predictions() -> dict:
     """
-    Full prediction pipeline cached for 1 hour.
-    Returns single dict consumed by all dashboard pages.
+    Runs the full prediction pipeline once and returns the results dict.
+
+    This holds the actual logic, with no Streamlit dependency, so it can
+    be called both from the dashboard (via the cached run_prediction()
+    wrapper below) and from pipelines/prediction_pipeline.py, which runs
+    this on a GitHub Actions schedule independent of dashboard visits.
     """
     logger.info("Running prediction pipeline")
 
@@ -476,6 +479,25 @@ def run_prediction() -> dict:
         logger.warning("Could not save prediction: %s", exc)
 
     return results
+
+
+# ---------------------------------------------------------------------------
+# Main entry point
+# ---------------------------------------------------------------------------
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def run_prediction() -> dict:
+    """
+    Full prediction pipeline cached for 1 hour.
+    Returns single dict consumed by all dashboard pages.
+
+    Thin wrapper around _generate_predictions() — kept separate so the
+    Streamlit cache only wraps the dashboard's entry point, while
+    pipelines/prediction_pipeline.py can call _generate_predictions()
+    directly (it runs as a plain script with no Streamlit app context
+    to cache against).
+    """
+    return _generate_predictions()
 
 
 # ---------------------------------------------------------------------------
